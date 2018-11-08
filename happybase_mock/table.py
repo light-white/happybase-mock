@@ -101,7 +101,8 @@ class Table(object):
         result = []
         for row in rows:
             data = self.row(row, columns, timestamp, include_timestamp)
-            result.append((row, data))
+            if data:
+                result.append((row, data))
         return result
 
     @_check_table_existence
